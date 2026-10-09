@@ -1,72 +1,91 @@
-# 🚀 PitchPerfect-AI
+# 🎯 PitchPerfect AI — High-Converting Freelance Proposal Generator
 
-![Language](https://img.shields.io/badge/Language-TypeScript-blue?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/Production-Active-success?style=for-the-badge)
+[![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org/)
+[![Express](https://img.shields.io/badge/Backend-Express%20Vite-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![Gemini](https://img.shields.io/badge/AI-Google%20Gemini%20API-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-## 📌 Overview
+**PitchPerfect AI** is an intelligent freelance proposal and cover letter generator tailored for platforms like **Upwork, Fiverr, and LinkedIn**. It analyzes client job descriptions, identifies underlying client pain points, and crafts high-converting, tailored proposals with persuasive openers, relevant portfolio highlights, and strategic closing questions.
 
-PitchPerfect AI is an intelligent freelance proposal and cover letter generator designed to help freelancers win more clients and earn more revenue (USD) on platforms like Upwork, Fiverr, and LinkedIn. 
+---
 
-## ✨ Key Features & Architecture
+## ✨ Features
 
-- **High-Performance Codebase:** Built using `TypeScript` and modern engineering principles.
-- **Modular & Scalable Design:** Structured directory tree for seamless development and deployment.
-- **Modern Responsive Styling:** Custom UI design system engineered for mobile & desktop clarity.
+* 🎣 **Attention-Grabbing Hooks:** Eliminates boilerplate generic openers (*"Dear Hiring Manager"*) in favor of problem-first solutions that grab client attention in the first 2 lines.
+* 💡 **Client Pain-Point Diagnosis:** Extracts the true business problem behind the technical requirements.
+* 💰 **Pricing & Scope Framing:** Helps structure milestone proposals and rate recommendations (hourly / fixed-price).
+* ⚡ **Full-Stack Integrated Backend:** Node.js Express server (`server.ts`) with Vite integration ensuring fast generation without exposing client API keys.
 
-## 🛠️ Tech Stack & Dependencies
+---
 
-- **Core Language:** `TypeScript`
-- **Libraries & Tools:** React 18, Vite, Tailwind CSS, TypeScript
-- **Deployment Infrastructure:** Vercel Edge / Cloud Services
+## 🛠️ Architecture & Tech Stack
 
-## 📁 Architecture & File Layout
+```
++-------------------------------------------------------------+
+|                  PitchPerfect React Client                  |
+|          (React 18, TypeScript, Tailwind CSS, Lucide)       |
++-------------------------------------------------------------+
+                              |
+                              v  REST API
++-------------------------------------------------------------+
+|                  Express Server (`server.ts`)               |
+|            Handles API proxying, rate-limiting, CORS        |
++-------------------------------------------------------------+
+                              |
+                              v
++-------------------------------------------------------------+
+|                   Google Gemini AI Engine                   |
+|           `@google/genai` Structured Proposal Prompts       |
++-------------------------------------------------------------+
+```
+
+---
+
+## 📁 Repository Structure
 
 ```text
 PitchPerfect-AI/
-├── .env.example
-├── .github
-├── .github/ISSUE_TEMPLATE
-├── .github/ISSUE_TEMPLATE/bug_report.md
-├── .github/ISSUE_TEMPLATE/feature_request.md
-├── .github/PULL_REQUEST_TEMPLATE.md
-├── .github/workflows
-├── .github/workflows/ci.yml
-├── .gitignore
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── README.md
-├── index.html
-├── metadata.json
-└── ... [additional codebase files]
+├── server.ts              # Express server with Vite middleware & Gemini API integration
+├── src/                   # React application source code
+│   ├── App.tsx            # Main proposal dashboard & editor
+│   ├── components/        # Proposal forms, tone selectors, preview panes
+│   └── lib/               # API clients & copy utilities
+├── metadata.json          # Project manifest
+├── package.json           # Dependencies & scripts
+├── LICENSE                # MIT License
+└── README.md
 ```
 
-## 🚀 Quickstart & Installation
+---
 
-### Prerequisites
-- Node.js (v18.0.0 or higher)
-- npm or yarn package manager
+## 🚀 Quick Start
 
-### Setup Instructions
+### 1. Installation
+```bash
+git clone https://github.com/Tarunjit45/PitchPerfect-AI.git
+cd PitchPerfect-AI
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Tarunjit45/PitchPerfect-AI.git
-   cd PitchPerfect-AI
-   ```
+npm install
+```
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+### 2. Configure Environment
+Create a `.env` file:
 
-3. **Launch development server:**
-   ```bash
-   npm run dev
-   ```
+```env
+PORT=3000
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-## 📜 Author & License
+### 3. Run Development Server
+```bash
+npm run dev
+```
 
-Architected & Developed by **[Tarunjit Biswas](https://github.com/Tarunjit45)**.  
-Distributed under the **MIT License**.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📄 License
+This project is licensed under the [MIT License](LICENSE).
